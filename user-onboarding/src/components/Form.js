@@ -83,9 +83,10 @@ function Form() {
     
     return(
         <form onSubmit={formSubmit}>
-            <label htmlFor='name'>
+            <label htmlFor='name' data-cy='errorName'>
                 Name
                 <input
+                    data-cy='name'
                     id='name'
                     type='text'
                     name='name'
@@ -94,9 +95,10 @@ function Form() {
                 />
                 {errors.name.length > 0 ? <p>{errors.name}</p> : null}
             </label>
-            <label htmlFor='email'>
+            <label htmlFor='email' data-cy='errorEmail'>
                 Email
-                <input 
+                <input
+                    data-cy='email'
                     id='email'
                     type='text'
                     name='email'
@@ -105,9 +107,10 @@ function Form() {
                 />
                 {errors.email.length > 0 ? (<p>{errors.email}</p>) : null}
             </label>
-            <label htmlFor='password'>
+            <label htmlFor='password' data-cy='errorPassword'>
                 Password
                 <input
+                    data-cy='password'
                     id='password'
                     type='text'
                     name='password'
@@ -118,6 +121,7 @@ function Form() {
             </label>
             <label htmlFor='terms'>
                 <input
+                    data-cy='checkbox'
                     type='checkbox'
                     name='terms'
                     checked={formState.terms}
@@ -126,7 +130,7 @@ function Form() {
                 Terms and Conditions
             </label>
             <pre>{JSON.stringify(post, null, 2)}</pre>
-            <button disabled={buttonDisabled}>Submit</button>
+            <button data-cy='button' type='submit' disabled={buttonDisabled}>Submit</button>
         </form>
 
     )
